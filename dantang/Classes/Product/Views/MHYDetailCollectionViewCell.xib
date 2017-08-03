@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MHYDetailCollectionViewCell" customModule="dantang" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="149" height="204"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="149" height="204"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ov0-xx-hw9">
+                        <rect key="frame" x="59" y="89" width="31" height="26"/>
+                        <state key="normal" image="PlaceHolderImage_small_31x26_"/>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rmN-Rx-IBg">
+                        <rect key="frame" x="0.0" y="0.0" width="149" height="204"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rmN-Rx-IBg" secondAttribute="bottom" id="16A-bx-X81"/>
+                <constraint firstItem="rmN-Rx-IBg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4q9-BZ-tcD"/>
+                <constraint firstItem="ov0-xx-hw9" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="B6O-3g-o66"/>
+                <constraint firstItem="ov0-xx-hw9" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="gEI-x5-v1Q"/>
+                <constraint firstItem="rmN-Rx-IBg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tj8-pG-uPJ"/>
+                <constraint firstAttribute="trailing" secondItem="rmN-Rx-IBg" secondAttribute="trailing" id="xbN-UR-BR4"/>
+            </constraints>
+            <size key="customSize" width="149" height="204"/>
+            <connections>
+                <outlet property="bgImageView" destination="rmN-Rx-IBg" id="P36-VW-SZk"/>
+                <outlet property="placeholderBtn" destination="ov0-xx-hw9" id="cTd-bM-vLT"/>
+            </connections>
+            <point key="canvasLocation" x="83.5" y="131"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="PlaceHolderImage_small_31x26_" width="31" height="26"/>
+    </resources>
+</document>
