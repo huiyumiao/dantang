@@ -42,7 +42,7 @@ class MHYProductDetailTopView: UIView, UICollectionViewDelegate, UICollectionVie
         
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(collectionView.snp.bottom).offset(5)
-            make.left.equalTo(self).offset(5)
+            make.left.equalTo(self).offset(15)
             make.right.equalTo(self).offset(-5)
             make.height.equalTo(30)
         }
@@ -75,7 +75,7 @@ class MHYProductDetailTopView: UIView, UICollectionViewDelegate, UICollectionVie
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.numberOfLines = 0
-        titleLabel.textColor = UIColor.black
+        titleLabel.textColor = UIColor.gray
         return titleLabel
     }()
     

@@ -21,5 +21,69 @@
             continueAfterRunningActions = "No">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "dantang/Classes/DanTang/Controllers/MHYTopicTableViewController.swift"
+            timestampString = "523502978.80448"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "previewActionItems"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "dantang/Classes/Category/Views/MHYCategoryTopicsCellTableViewCell.swift"
+            timestampString = "523532327.447632"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "loadSpecificTopic(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "dantang.MHYCategoryTopicsCellTableViewCell.(loadSpecificTopic in _C34A23C4083678239CA4E0C876D5C158) (__ObjC.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "dantang"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mhy/Desktop/test/dantang/dantang/Classes/Category/Views/MHYCategoryTopicsCellTableViewCell.swift"
+                  timestampString = "523532415.800097"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "730">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "dantang.MHYCategoryTopicsCellTableViewCell.((loadSpecificTopic in _C34A23C4083678239CA4E0C876D5C158) (__ObjC.UITapGestureRecognizer) -&gt; ()).(closure #1)"
+                  moduleName = "dantang"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mhy/Desktop/test/dantang/dantang/Classes/Category/Views/MHYCategoryTopicsCellTableViewCell.swift"
+                  timestampString = "523532415.802312"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -17,6 +17,7 @@ class MHYNetworkTool: NSObject {
     
     // MARK: - 获取首页数据
     func loadHomeInfo(id: Int, finished: @escaping (_ homeItems: [MHYHomeItem]) -> ()) {
+        SVProgressHUD.show(withStatus: "正在加载...")
         
         let url = BASE_URL + "v1/channels/\(id)/items"
         let params = ["gender": 1,
@@ -39,6 +40,8 @@ class MHYNetworkTool: NSObject {
                         SVProgressHUD.showInfo(withStatus: message)
                         return
                     }
+                    SVProgressHUD.dismiss()
+                    
                     let data = dict["data"].dictionary
                     // 字典转模型
                     if let items = data!["items"]?.arrayObject {
@@ -221,6 +224,94 @@ class MHYNetworkTool: NSObject {
                             finished(comments)
                         }
                     }
+                }
+        }
+    }
+    
+    // MARK: - 分类页面专题合集数据
+    func loadCategoryCollectionsInfo(finished:@escaping (_ collections: [MHYTopicModel]) -> ()) {
+        SVProgressHUD.show()
+        
+        let url = BASE_URL + "v1/collections"
+        
+        Alamofire
+            .request(url)
+            .responseJSON { (response) in
+                guard response.result.isSuccess else {
+                    SVProgressHUD.showError(withStatus: "加载失败...")
+                    return
+                }
+                
+                if let value = response.result.value {
+                    let dict = JSON(value)
+                    let code = dict["code"].intValue
+                    let message = dict["message"].stringValue
+                    
+                    guard code == RETURN_OK else {
+                        SVProgressHUD.showInfo(withStatus: message)
+                        return
+                    }
+                    SVProgressHUD.dismiss()
+                    
+                    if let data = dict["data"].dictionary {
+                        if let collectionData = data["collections"]?.arrayObject {
+                            var collection = [MHYTopicModel]()
+                            for item in collectionData {
+                                let topic = MHYTopicModel(dict: item as! [String: AnyObject])
+                                collection.append(topic)
+                            }
+                            finished(collection)
+                        }
+                    }
+                }
+        }
+    }
+    
+    // MARK: - 某个专题的信息
+    func loadTopicData(id: Int, finished:@escaping (_ postList: MHYPostListModel) -> ()) {
+        SVProgressHUD.show(withStatus: "加载中...")
+        
+        let url = BASE_URL + "/v1/collections/\(id)/posts?gender=1&generation=0&limit=20&offset=0"
+        
+        Alamofire
+            .request(url)
+            .responseJSON { (response) in
+                guard response.result.isSuccess else {
+                    SVProgressHUD.showError(withStatus: "加载失败")
+                    return
+                }
+                
+                if let value = response.value {
+                    let dict = JSON(value)
+                    let code = dict["code"].intValue
+                    let message = dict["message"].stringValue
+                    
+                    guard code == RETURN_OK else {
+                        SVProgressHUD.showInfo(withStatus: message)
+                        return
+                    }
+                    SVProgressHUD.dismiss()
+                    
+//                    var postList: MHYPostListModel!
+//                    if let data = dict["data"].dictionaryObject {
+//                        postList = MHYPostListModel(dict: data as [String: AnyObject])
+//                    }
+//                    
+//                    if let data = dict["data"].dictionary {
+//                        
+//                        var allPost = [MHYPostModel]()
+//                        if let posts = data["posts"]?.arrayObject {
+//                            for item in posts {
+//                                let post = MHYPostModel(dict: item as! [String: AnyObject])
+//                                allPost.append(post)
+//                            }
+//                        }
+//                        finished(postList, allPost)
+//                    }
+                    
+                    
+                    let postList = MHYPostListModel(dict: dict)
+                    finished(postList!)
                 }
         }
     }

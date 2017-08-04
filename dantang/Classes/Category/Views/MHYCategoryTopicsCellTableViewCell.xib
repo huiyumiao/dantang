@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="120" id="KGk-i7-Jjw" customClass="MHYCategoryTopicsCellTableViewCell" customModule="dantang" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43o-Xx-ACa">
+                        <rect key="frame" x="0.0" y="118.5" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="XKC-e3-QQa"/>
+                        </constraints>
+                    </view>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpB-HL-IBb">
+                        <rect key="frame" x="0.0" y="38.5" width="320" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="VhL-fo-KRy"/>
+                        </constraints>
+                    </scrollView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="专题合集" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLx-q4-wql">
+                        <rect key="frame" x="12" y="12" width="64" height="16.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw5-ot-ofc">
+                        <rect key="frame" x="253" y="8" width="45" height="26"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <state key="normal" title="查看全部">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Category_PostCollectionSeeAll_5x8_" translatesAutoresizingMaskIntoConstraints="NO" id="Z1q-rX-Ybs">
+                        <rect key="frame" x="300" y="16.5" width="5" height="8"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="5" id="D0D-Pa-12a"/>
+                            <constraint firstAttribute="height" constant="8" id="Pxc-8E-Iph"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="43o-Xx-ACa" secondAttribute="bottom" id="3P0-0B-c3P"/>
+                    <constraint firstAttribute="trailing" secondItem="43o-Xx-ACa" secondAttribute="trailing" id="49V-A7-4Ju"/>
+                    <constraint firstItem="cw5-ot-ofc" firstAttribute="centerY" secondItem="oLx-q4-wql" secondAttribute="centerY" id="6Hx-3S-DOZ"/>
+                    <constraint firstItem="43o-Xx-ACa" firstAttribute="top" secondItem="CpB-HL-IBb" secondAttribute="bottom" constant="10" id="6WY-GN-Bz9"/>
+                    <constraint firstItem="43o-Xx-ACa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BLR-mF-nv3"/>
+                    <constraint firstItem="Z1q-rX-Ybs" firstAttribute="leading" secondItem="cw5-ot-ofc" secondAttribute="trailing" constant="2" id="EaN-Ix-z9m"/>
+                    <constraint firstItem="oLx-q4-wql" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="T1B-Lj-EYo"/>
+                    <constraint firstItem="CpB-HL-IBb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WgI-dZ-sFa"/>
+                    <constraint firstAttribute="trailing" secondItem="Z1q-rX-Ybs" secondAttribute="trailing" constant="15" id="aSe-7Y-kuf"/>
+                    <constraint firstItem="oLx-q4-wql" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="gzb-YX-hS9"/>
+                    <constraint firstItem="CpB-HL-IBb" firstAttribute="top" secondItem="oLx-q4-wql" secondAttribute="bottom" constant="10" id="psF-Dz-Wfh"/>
+                    <constraint firstItem="Z1q-rX-Ybs" firstAttribute="centerY" secondItem="cw5-ot-ofc" secondAttribute="centerY" id="uw4-1w-ROU"/>
+                    <constraint firstAttribute="trailing" secondItem="CpB-HL-IBb" secondAttribute="trailing" id="wOx-5o-d8l"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="scrollView" destination="CpB-HL-IBb" id="KdY-Ow-bF3"/>
+                <outlet property="showAllBtn" destination="cw5-ot-ofc" id="ZYS-0c-HNF"/>
+                <outlet property="titleLabel" destination="oLx-q4-wql" id="a0V-rU-F11"/>
+            </connections>
+            <point key="canvasLocation" x="35" y="30"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Category_PostCollectionSeeAll_5x8_" width="5" height="8"/>
+    </resources>
+</document>

@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-let collectionCellID = "YMCollectionViewCell"
+let collectionCellID = "MHYCollectionViewCell"
 
 class MHYProductViewController: MHYBaseViewController, MHYCollectionViewCellDelegate {
     

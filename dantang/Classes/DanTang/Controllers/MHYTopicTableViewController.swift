@@ -25,6 +25,7 @@ class MHYTopicTableViewController: UITableViewController, MHYHomeCellDelegate {
         
         setupTableView()
         
+        
         // 添加刷新控件
 //        refreshControl = UIRefreshControl()
 //        refreshControl?.addTarget(self, action: #selector(loadHomeData), for: .valueChanged)
@@ -37,14 +38,30 @@ class MHYTopicTableViewController: UITableViewController, MHYHomeCellDelegate {
         
         let gifHeader = MJRefreshGifHeader.init { 
             print("refreshing")
-            sleep(2)
-            self.tableView.mj_header.endRefreshing()
+//            sleep(2)
+//            self.tableView.mj_header.endRefreshing()
+            self.loadHomeData()
         }
         
-        
-        gifHeader?.setImages([UIImage.init(named: "tableview_loading")!], duration: 3.0, for: .refreshing)
-        gifHeader?.setImages([UIImage.init(named: "arrow_index_down_8x4_")!], duration: 2.0, for: .idle)
-        gifHeader?.setImages([UIImage.init(named: "arrow_index_up_8x4_")!], duration: 2.0, for: .pulling)
+        gifHeader?.setTitle("", for: .idle)
+        gifHeader?.setTitle("", for: .pulling)
+        gifHeader?.setTitle("", for: .refreshing)
+        gifHeader?.setTitle("", for: .idle)
+        gifHeader?.stateLabel.text = ""
+        gifHeader?.lastUpdatedTimeText = { _ in return "" }
+        gifHeader?.labelLeftInset = -10
+        gifHeader?.setImages([#imageLiteral(resourceName: "tableview_loading_0"),
+                              #imageLiteral(resourceName: "tableview_loading_1"),
+                              #imageLiteral(resourceName: "tableview_loading_2"),
+                              #imageLiteral(resourceName: "tableview_loading_3"),
+                              #imageLiteral(resourceName: "tableview_loading_4"),
+                              #imageLiteral(resourceName: "tableview_loading_5"),
+                              #imageLiteral(resourceName: "tableview_loading_6"),
+                              #imageLiteral(resourceName: "tableview_loading_7"),
+                              #imageLiteral(resourceName: "tableview_loading_8"),
+                              #imageLiteral(resourceName: "tableview_loading_9")], duration: 0.8, for: .refreshing)
+        gifHeader?.setImages([#imageLiteral(resourceName: "tableview_pull_refresh")], duration: 2.0, for: .idle)
+        gifHeader?.setImages([#imageLiteral(resourceName: "tableview_release_refresh")], duration: 2.0, for: .pulling)
         tableView.mj_header = gifHeader
         
         // 获取首页数据
@@ -58,7 +75,8 @@ class MHYTopicTableViewController: UITableViewController, MHYHomeCellDelegate {
         MHYNetworkTool.sharedNetworkTool.loadHomeInfo(id: type) { (homeItems) in
             weakSelf!.items = homeItems
             weakSelf!.tableView.reloadData()
-            weakSelf!.refreshControl?.endRefreshing()
+            weakSelf?.tableView.mj_header.endRefreshing()
+//            weakSelf!.refreshControl?.endRefreshing()
         }
     }
     
@@ -70,6 +88,7 @@ class MHYTopicTableViewController: UITableViewController, MHYHomeCellDelegate {
         let nib = UINib(nibName: String(describing: MHYHomeCell.self), bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: homeCellID)
     }
+    
 
     // MARK: - Table view data source
 
@@ -90,6 +109,12 @@ class MHYTopicTableViewController: UITableViewController, MHYHomeCellDelegate {
         homeCell.selectionStyle = .none
         homeCell.homeItem = items[indexPath.row]
         homeCell.delegate = self
+        
+        if #available(iOS 9.0, *) {
+            registerForPreviewing(with: self, sourceView: homeCell)
+        } else {
+            // Fallback on earlier versions
+        }
 
         return homeCell
     }
@@ -115,4 +140,58 @@ class MHYTopicTableViewController: UITableViewController, MHYHomeCellDelegate {
     }
     */
 
+}
+
+extension MHYTopicTableViewController:  UIViewControllerPreviewingDelegate{
+    @available(iOS 9.0, *)
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+//        showDetailViewController(viewControllerToCommit, sender: self)
+        navigationController?.pushViewController(viewControllerToCommit, animated: true)
+    }
+
+    
+    @available(iOS 9.0, *)
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        let detailVC = MHYDetailViewController()
+        let indexPath = self.tableView.indexPath(for: (previewingContext.sourceView) as! MHYHomeCell)! as NSIndexPath
+        detailVC.homeItem = items[indexPath.row]
+        detailVC.title = "攻略详情"
+
+        return detailVC
+    }
+    
+    @available(iOS 9.0, *)
+    override var previewActionItems: [UIPreviewActionItem] {
+        let action1 = UIPreviewAction(title: "Action One",
+                                      style: .destructive,
+                                      handler: { previewAction, viewController in
+                                        print("Action One Selected")
+        })
+        
+        let action2 = UIPreviewAction(title: "Action Two",
+                                      style: .selected,
+                                      handler: { previewAction, viewController in
+                                        print("Action Two Selected")
+        })
+        
+        let groupAction1 = UIPreviewAction(title: "Group Action One",
+                                           style: .default,
+                                           handler: { previewAction, viewController in
+                                            print("Group Action One Selected")
+        })
+        
+        let groupAction2 = UIPreviewAction(title: "Group Action Two",
+                                           style: .default,
+                                           handler: { previewAction, viewController in
+                                            print("Group Action Two Selected")
+        })
+        
+        let groupActions = UIPreviewActionGroup(title: "My Action Group...",
+                                                style: .default,
+                                                actions: [groupAction1, groupAction2])
+        
+        return [action1, action2, groupActions]
+    }
+    
 }

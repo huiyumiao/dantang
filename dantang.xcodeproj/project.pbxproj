@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C4561B21F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4561B01F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift */; };
+		8C4561B31F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4561B11F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib */; };
+		8C4561BC1F3418B200F3E529 /* MHYTopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4561BB1F3418B200F3E529 /* MHYTopicModel.swift */; };
+		8C4561BE1F345DEE00F3E529 /* MHYPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4561BD1F345DEE00F3E529 /* MHYPostModel.swift */; };
 		8C521F9E1EE04F5700027CA1 /* MHYTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C521F9D1EE04F5700027CA1 /* MHYTabbarController.swift */; };
 		8C521FA31EE0561200027CA1 /* MHYConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C521FA21EE0561200027CA1 /* MHYConst.swift */; };
 		8C521FA71EE058D200027CA1 /* MHYNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C521FA61EE058D200027CA1 /* MHYNavigationViewController.swift */; };
@@ -75,6 +79,10 @@
 
 /* Begin PBXFileReference section */
 		3C91168C2B02E62EDAA01F7B /* Pods-dantang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dantang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dantang/Pods-dantang.debug.xcconfig"; sourceTree = "<group>"; };
+		8C4561B01F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYCategoryTopicsCellTableViewCell.swift; sourceTree = "<group>"; };
+		8C4561B11F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHYCategoryTopicsCellTableViewCell.xib; sourceTree = "<group>"; };
+		8C4561BB1F3418B200F3E529 /* MHYTopicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYTopicModel.swift; sourceTree = "<group>"; };
+		8C4561BD1F345DEE00F3E529 /* MHYPostModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYPostModel.swift; sourceTree = "<group>"; };
 		8C521F811EE04DB100027CA1 /* dantang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dantang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C521F9D1EE04F5700027CA1 /* MHYTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYTabbarController.swift; sourceTree = "<group>"; };
 		8C521FA21EE0561200027CA1 /* MHYConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MHYConst.swift; path = ../../../../MHYConst.swift; sourceTree = "<group>"; };
@@ -183,6 +191,24 @@
 				ABDD5D3DA675FD681EEE79A4 /* Pods-dantang.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8C4561AF1F340D0700F3E529 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C4561B01F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift */,
+				8C4561B11F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8C4561B41F34163F00F3E529 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8C4561BB1F3418B200F3E529 /* MHYTopicModel.swift */,
+				8C4561BD1F345DEE00F3E529 /* MHYPostModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8C521F781EE04DB100027CA1 = {
@@ -304,6 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				8C521FB21EE0F21B00027CA1 /* Controllers */,
+				8C4561AF1F340D0700F3E529 /* Views */,
+				8C4561B41F34163F00F3E529 /* Models */,
 			);
 			name = Category;
 			path = dantang/Classes/Category;
@@ -581,6 +609,7 @@
 				8C521FBC1EE0F2EC00027CA1 /* Assets.xcassets in Resources */,
 				8C8A66BC1EE50B9100732061 /* MHYCollectionViewCell.xib in Resources */,
 				8C6584091EEE8F85005B9312 /* MJRefresh.bundle in Resources */,
+				8C4561B31F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib in Resources */,
 				8C81D11D1EE695C700EF5AE5 /* MHYDetailCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -645,6 +674,7 @@
 				8C81D1221EE6F67A00EF5AE5 /* MHYCommentCell.swift in Sources */,
 				8C65840C1EEE8F85005B9312 /* UIScrollView+MJExtension.m in Sources */,
 				8C6584071EEE8F85005B9312 /* MJRefreshNormalHeader.m in Sources */,
+				8C4561BC1F3418B200F3E529 /* MHYTopicModel.swift in Sources */,
 				8C6584021EEE8F85005B9312 /* MJRefreshAutoStateFooter.m in Sources */,
 				8C81D1171EE68E4500EF5AE5 /* MHYProductDetailTopView.swift in Sources */,
 				8C521FAD1EE0F1AD00027CA1 /* MHYDanTangViewController.swift in Sources */,
@@ -662,6 +692,7 @@
 				8C81D1151EE68DC500EF5AE5 /* MHYDetailScrollView.swift in Sources */,
 				8C6583FE1EEE8F85005B9312 /* MJRefreshFooter.m in Sources */,
 				8C521FDC1EE198AF00027CA1 /* MHYHomeCell.swift in Sources */,
+				8C4561B21F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift in Sources */,
 				8C521FC71EE0F56700027CA1 /* MHYHomeItem.swift in Sources */,
 				8C81D1291EE7896200EF5AE5 /* MHYProductDetailToolBar.swift in Sources */,
 				8C81D11C1EE695C700EF5AE5 /* MHYDetailCollectionViewCell.swift in Sources */,
@@ -680,6 +711,7 @@
 				8C521FA31EE0561200027CA1 /* MHYConst.swift in Sources */,
 				8C6584011EEE8F85005B9312 /* MJRefreshAutoNormalFooter.m in Sources */,
 				8C81D1311EE7CD4D00EF5AE5 /* MHYActionSheet.swift in Sources */,
+				8C4561BE1F345DEE00F3E529 /* MHYPostModel.swift in Sources */,
 				8C81D1131EE6896D00EF5AE5 /* MHYProductDetailViewController.swift in Sources */,
 				8C521FD31EE1444D00027CA1 /* UITableView+EmptyData.swift in Sources */,
 				8C81D11F1EE6EABC00EF5AE5 /* MHYComment.swift in Sources */,
