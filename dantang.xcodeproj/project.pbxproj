@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8C3F62F41F37F543001A5574 /* MHYTopicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3F62F31F37F543001A5574 /* MHYTopicListViewController.swift */; };
+		8C3F62F61F3815D6001A5574 /* MHYChannelGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3F62F51F3815D6001A5574 /* MHYChannelGroupCell.swift */; };
+		8C3F62FA1F385931001A5574 /* MHYChannelGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3F62F91F385931001A5574 /* MHYChannelGroupModel.swift */; };
 		8C4561B21F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4561B01F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift */; };
 		8C4561B31F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4561B11F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib */; };
 		8C4561BC1F3418B200F3E529 /* MHYTopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4561BB1F3418B200F3E529 /* MHYTopicModel.swift */; };
@@ -81,6 +83,8 @@
 /* Begin PBXFileReference section */
 		3C91168C2B02E62EDAA01F7B /* Pods-dantang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dantang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dantang/Pods-dantang.debug.xcconfig"; sourceTree = "<group>"; };
 		8C3F62F31F37F543001A5574 /* MHYTopicListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYTopicListViewController.swift; sourceTree = "<group>"; };
+		8C3F62F51F3815D6001A5574 /* MHYChannelGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYChannelGroupCell.swift; sourceTree = "<group>"; };
+		8C3F62F91F385931001A5574 /* MHYChannelGroupModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYChannelGroupModel.swift; sourceTree = "<group>"; };
 		8C4561B01F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYCategoryTopicsCellTableViewCell.swift; sourceTree = "<group>"; };
 		8C4561B11F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHYCategoryTopicsCellTableViewCell.xib; sourceTree = "<group>"; };
 		8C4561BB1F3418B200F3E529 /* MHYTopicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYTopicModel.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 			children = (
 				8C4561B01F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift */,
 				8C4561B11F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib */,
+				8C3F62F51F3815D6001A5574 /* MHYChannelGroupCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 			children = (
 				8C4561BB1F3418B200F3E529 /* MHYTopicModel.swift */,
 				8C4561BD1F345DEE00F3E529 /* MHYPostModel.swift */,
+				8C3F62F91F385931001A5574 /* MHYChannelGroupModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -678,6 +684,7 @@
 				8C65840C1EEE8F85005B9312 /* UIScrollView+MJExtension.m in Sources */,
 				8C6584071EEE8F85005B9312 /* MJRefreshNormalHeader.m in Sources */,
 				8C4561BC1F3418B200F3E529 /* MHYTopicModel.swift in Sources */,
+				8C3F62F61F3815D6001A5574 /* MHYChannelGroupCell.swift in Sources */,
 				8C6584021EEE8F85005B9312 /* MJRefreshAutoStateFooter.m in Sources */,
 				8C81D1171EE68E4500EF5AE5 /* MHYProductDetailTopView.swift in Sources */,
 				8C521FAD1EE0F1AD00027CA1 /* MHYDanTangViewController.swift in Sources */,
@@ -708,6 +715,7 @@
 				8C521FC91EE0F57300027CA1 /* MHYSearchResult.swift in Sources */,
 				8C6584041EEE8F85005B9312 /* MJRefreshBackNormalFooter.m in Sources */,
 				8C6584061EEE8F85005B9312 /* MJRefreshGifHeader.m in Sources */,
+				8C3F62FA1F385931001A5574 /* MHYChannelGroupModel.swift in Sources */,
 				8C65840E1EEE8F85005B9312 /* UIView+MJExtension.m in Sources */,
 				8C6584051EEE8F85005B9312 /* MJRefreshBackStateFooter.m in Sources */,
 				8C8A66BB1EE50B9100732061 /* MHYCollectionViewCell.swift in Sources */,

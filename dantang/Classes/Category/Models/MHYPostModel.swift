@@ -78,12 +78,12 @@ class MHYPostListModel: NSObject {
         
     }
 
-    convenience init?(dict: JSON) {
+    convenience init?(json: JSON) {
         
-        if let data = dict["data"].dictionaryObject {
+        if let data = json["data"].dictionaryObject {
             self.init(dict: data as [String: AnyObject])
             
-            if let data = dict["data"].dictionary {
+            if let data = json["data"].dictionary {
                 var allPost = [MHYPostModel]()
                 if let posts = data["posts"]?.arrayObject {
                     for item in posts {

@@ -310,8 +310,47 @@ class MHYNetworkTool: NSObject {
 //                    }
                     
                     
-                    let postList = MHYPostListModel(dict: dict)
+                    let postList = MHYPostListModel(json: dict)
                     finished(postList!)
+                }
+        }
+    }
+    
+    // MARK: - <#mark info#>
+    func loadChannelGroups(finished:@escaping (_ channelGroups: [MHYChannelGroupModel]) -> ()) {
+        SVProgressHUD.show(withStatus: "加载中...")
+        
+        let url = BASE_URL + "v1/channel_groups/all"
+        
+        Alamofire.request(url)
+            .responseJSON { (response) in
+                guard response.result.isSuccess else {
+                    SVProgressHUD.showError(withStatus: "加载失败")
+                    return
+                }
+                
+                if let value = response.value {
+                    let dict = JSON(value)
+                    let code = dict["code"].intValue
+                    let message = dict["message"].stringValue
+                    
+                    guard code == RETURN_OK else {
+                        SVProgressHUD.showInfo(withStatus: message)
+                        return
+                    }
+                    SVProgressHUD.dismiss()
+                    
+                    var channelGroups = [MHYChannelGroupModel]()
+                    if let data = dict["data"].dictionary {
+                        if let chaGroups = data["channel_groups"]?.array {
+                            for item in chaGroups {
+                                let channelGroup = MHYChannelGroupModel(json: item)
+                                channelGroups.append(channelGroup)
+                            }
+                        }
+                    }
+                    
+                    finished(channelGroups)
                 }
         }
     }

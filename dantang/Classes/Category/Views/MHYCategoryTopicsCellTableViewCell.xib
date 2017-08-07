@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43o-Xx-ACa">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43o-Xx-ACa">
                         <rect key="frame" x="0.0" y="118.5" width="320" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -72,7 +72,7 @@
                 <outlet property="showAllBtn" destination="cw5-ot-ofc" id="ZYS-0c-HNF"/>
                 <outlet property="titleLabel" destination="oLx-q4-wql" id="a0V-rU-F11"/>
             </connections>
-            <point key="canvasLocation" x="35" y="30"/>
+            <point key="canvasLocation" x="-78" y="30"/>
         </tableViewCell>
     </objects>
     <resources>
