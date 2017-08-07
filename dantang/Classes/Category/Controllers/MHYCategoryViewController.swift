@@ -53,6 +53,11 @@ extension MHYCategoryViewController: UITableViewDelegate, UITableViewDataSource 
         let topicsCell = tableView.dequeueReusableCell(withIdentifier: TopicCollectionsCell, for: indexPath) as! MHYCategoryTopicsCellTableViewCell
         topicsCell.topicCollections = collections
         
+        topicsCell.topicListCloser = { id in
+            let topicListVC = MHYTopicListViewController().initWith(topicId: id)
+            self.navigationController?.pushViewController(topicListVC, animated: true)
+        }
+        
         return topicsCell
     }
     

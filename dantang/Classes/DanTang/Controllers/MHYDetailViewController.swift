@@ -12,7 +12,8 @@ import WebKit
 
 class MHYDetailViewController: MHYBaseViewController, UIWebViewDelegate, WKNavigationDelegate, WKUIDelegate {
     
-    var homeItem: MHYHomeItem?
+    var homeItem:  MHYHomeItem?
+    var topicItem: MHYPostModel?
     
     let webView = WKWebView()
     let progressBar = UIProgressView()
@@ -36,7 +37,8 @@ class MHYDetailViewController: MHYBaseViewController, UIWebViewDelegate, WKNavig
         webView.navigationDelegate = self
         webView.uiDelegate = self
         webView.allowsBackForwardNavigationGestures = true
-        let url = URL(string: homeItem!.content_url!)
+        let urlString = homeItem != nil ? homeItem!.content_url! : topicItem!.content_url!
+        let url = URL(string: urlString)
         let request = URLRequest(url: url! as URL)
         webView.load(request)
         

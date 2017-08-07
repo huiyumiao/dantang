@@ -13,6 +13,8 @@ protocol MHYHomeCellDelegate: NSObjectProtocol {
     func homeCellDidClickedFavoriteButton(button: UIButton)
 }
 
+let homeCellID = "homeCellID"
+
 class MHYHomeCell: UITableViewCell {
     
     weak var delegate: MHYHomeCellDelegate?
@@ -25,7 +27,7 @@ class MHYHomeCell: UITableViewCell {
     
     @IBOutlet weak var placeHolderBtn: UIButton!
     
-    var homeItem:MHYHomeItem? {
+    var homeItem: MHYHomeItem? {
         didSet {
             let url = homeItem!.cover_image_url
             bgImageView.kf.setImage(with: URL(string: url!)!,
@@ -37,6 +39,21 @@ class MHYHomeCell: UITableViewCell {
             }
             titleLabel.text = homeItem!.title
             favoriteBtn.setTitle(" " + String(homeItem!.likes_count!) + " ", for: .normal)
+        }
+    }
+    
+    var topicItem: MHYPostModel? {
+        didSet {
+            let url = topicItem!.cover_image_url
+            bgImageView.kf.setImage(with: URL(string: url!)!,
+                                    placeholder: nil,
+                                    options: nil,
+                                    progressBlock: nil)
+            { (image, error, cacheType, url) in
+                self.placeHolderBtn.isHidden = true
+            }
+            titleLabel.text = topicItem!.title
+            favoriteBtn.setTitle(" " + String(topicItem!.likes_count!) + " ", for: .normal)
         }
     }
     

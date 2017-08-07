@@ -27,20 +27,20 @@ class MHYHomeItem: NSObject {
     
     init(dict: [String: AnyObject]) {
         super.init()
-        content_url = dict["content_url"] as? String
+        content_url     = dict["content_url"] as? String
         cover_image_url = dict["cover_image_url"] as? String
-        created_at = dict["created_at"] as? Int
-        id = dict["id"] as? Int
-        liked = dict["liked"] as? Int
-        likes_count = dict["likes_count"] as? Int
-        share_msg = dict["share_msg"] as? String
-        published_at = dict["published_at"] as? Int
-        short_title = dict["short_title"] as? String
-        status = dict["status"] as? Int
-        type = dict["type"] as? String
-        title = dict["title"] as? String
-        template = dict["template"] as? String
-        updated_at = dict["updated_at"] as? Int
-        url = dict["url"] as? String
+        created_at      = dict["created_at"] as? Int
+        id              = dict["id"] as? Int
+        liked           = dict["liked"] as? Int
+        likes_count     = dict["likes_count"] as? Int
+        share_msg       = dict["share_msg"] as? String
+        published_at    = dict["published_at"] as? Int
+        short_title     = dict["short_title"] as? String
+        status          = dict["status"] as? Int
+        type            = dict["type"] as? String
+        title           = dict["title"] as? String
+        template        = dict["template"] as? String
+        updated_at      = dict["updated_at"] as? Int
+        url             = dict["url"] as? String
     }
 }

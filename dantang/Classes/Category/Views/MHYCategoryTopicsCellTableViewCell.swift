@@ -17,10 +17,11 @@ class MHYCategoryTopicsCellTableViewCell: UITableViewCell {
     @IBOutlet weak var showAllBtn: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    
     let imgViewMargin = 10
     let imgViewWidth  = 150
     let imgViewHeight = 70
+    
+    var topicListCloser: ((Int) -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -83,9 +84,8 @@ class MHYCategoryTopicsCellTableViewCell: UITableViewCell {
         
         let topic = topicCollections?[imgView.tag]
         
-        // 请求某个专题数据
-        MHYNetworkTool.sharedNetworkTool.loadTopicData(id: (topic?.id)!) { (postList) in
-            
+        if topicListCloser != nil {
+            topicListCloser!((topic?.id)!)
         }
     }
 }

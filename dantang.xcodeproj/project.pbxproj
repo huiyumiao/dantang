@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C3F62F41F37F543001A5574 /* MHYTopicListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3F62F31F37F543001A5574 /* MHYTopicListViewController.swift */; };
 		8C4561B21F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4561B01F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift */; };
 		8C4561B31F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4561B11F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib */; };
 		8C4561BC1F3418B200F3E529 /* MHYTopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4561BB1F3418B200F3E529 /* MHYTopicModel.swift */; };
@@ -79,6 +80,7 @@
 
 /* Begin PBXFileReference section */
 		3C91168C2B02E62EDAA01F7B /* Pods-dantang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dantang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dantang/Pods-dantang.debug.xcconfig"; sourceTree = "<group>"; };
+		8C3F62F31F37F543001A5574 /* MHYTopicListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYTopicListViewController.swift; sourceTree = "<group>"; };
 		8C4561B01F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYCategoryTopicsCellTableViewCell.swift; sourceTree = "<group>"; };
 		8C4561B11F340D8400F3E529 /* MHYCategoryTopicsCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHYCategoryTopicsCellTableViewCell.xib; sourceTree = "<group>"; };
 		8C4561BB1F3418B200F3E529 /* MHYTopicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYTopicModel.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				8C521FB91EE0F26D00027CA1 /* MHYCategoryViewController.swift */,
+				8C3F62F31F37F543001A5574 /* MHYTopicListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				8C521FC51EE0F55B00027CA1 /* MHYChannel.swift in Sources */,
 				8C65840A1EEE8F85005B9312 /* MJRefreshConst.m in Sources */,
 				8C521FD91EE149F000027CA1 /* UIView+Extension.swift in Sources */,
+				8C3F62F41F37F543001A5574 /* MHYTopicListViewController.swift in Sources */,
 				8C521FB61EE0F25100027CA1 /* MHYMineViewController.swift in Sources */,
 				8C521FC91EE0F57300027CA1 /* MHYSearchResult.swift in Sources */,
 				8C6584041EEE8F85005B9312 /* MJRefreshBackNormalFooter.m in Sources */,

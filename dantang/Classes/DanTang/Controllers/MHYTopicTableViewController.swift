@@ -9,14 +9,11 @@
 import UIKit
 import SVProgressHUD
 
-let homeCellID = "homeCellID"
-
 class MHYTopicTableViewController: UITableViewController, MHYHomeCellDelegate {
     
     var type = Int()
     
     var items = [MHYHomeItem]()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +62,8 @@ class MHYTopicTableViewController: UITableViewController, MHYHomeCellDelegate {
         tableView.mj_header = gifHeader
         
         // 获取首页数据
-        refreshControl?.beginRefreshing()
+//        refreshControl?.beginRefreshing()
+        
         loadHomeData()
     }
     
@@ -106,7 +104,6 @@ class MHYTopicTableViewController: UITableViewController, MHYHomeCellDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let homeCell = tableView.dequeueReusableCell(withIdentifier: homeCellID, for: indexPath) as! MHYHomeCell
-        homeCell.selectionStyle = .none
         homeCell.homeItem = items[indexPath.row]
         homeCell.delegate = self
         
