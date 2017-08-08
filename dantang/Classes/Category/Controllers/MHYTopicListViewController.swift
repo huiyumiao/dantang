@@ -8,14 +8,25 @@
 
 import UIKit
 
+enum ViewControllerType {
+    case ViewControllerTypeTopic
+    case ViewControllerTypeChannel
+}
+
 class MHYTopicListViewController: UITableViewController {
     
-    var topicId = Int()
+    var id = Int()
     
     var items = [MHYPostModel]()
     
-    func initWith(topicId: Int) -> MHYTopicListViewController {
-        self.topicId = topicId
+    func initWith(id: Int, type: ViewControllerType) -> MHYTopicListViewController {
+        self.id = id
+        if type == .ViewControllerTypeTopic {
+            loadTopicList()
+        } else {
+            loadChannelItems()
+        }
+        
         return self
     }
 
@@ -23,7 +34,6 @@ class MHYTopicListViewController: UITableViewController {
         super.viewDidLoad()
 
         setupTableView()
-        loadTopicList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +42,7 @@ class MHYTopicListViewController: UITableViewController {
     }
     
     func setupTableView() {
-        tableView.rowHeight = 160
+        tableView.rowHeight = MHYHomeCell.rowHeight()
         tableView.separatorStyle = .none
         let nib = UINib(nibName: String(describing: MHYHomeCell.self), bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: homeCellID)
@@ -41,9 +51,17 @@ class MHYTopicListViewController: UITableViewController {
 
     fileprivate func loadTopicList() {
         weak var weakSelf = self
-        MHYNetworkTool.sharedNetworkTool.loadTopicData(id: topicId) { (topicList) in
+        MHYNetworkTool.sharedNetworkTool.loadTopicData(id: id) { (topicList) in
             weakSelf?.title = topicList.title
             weakSelf?.items = topicList.posts!
+            weakSelf?.tableView.reloadData()
+        }
+    }
+    
+    fileprivate func loadChannelItems() {
+        weak var weakSelf = self
+        MHYNetworkTool.sharedNetworkTool.loadChannelitems(id: id) { (channelItems) in
+            weakSelf?.items = channelItems
             weakSelf?.tableView.reloadData()
         }
     }
@@ -59,7 +77,7 @@ extension MHYTopicListViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: homeCellID, for: indexPath) as! MHYHomeCell
-        cell.topicItem = items[indexPath.row]
+        cell.postItem = items[indexPath.row]
         
         return cell
     }

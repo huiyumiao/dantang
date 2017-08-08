@@ -27,8 +27,20 @@ class MHYHomeCell: UITableViewCell {
     
     @IBOutlet weak var placeHolderBtn: UIButton!
     
+    @IBOutlet weak var zeroLabel: UILabel!
+    @IBOutlet weak var leftLineView: UIView!
+    @IBOutlet weak var rightLineView: UIView!
+    @IBOutlet weak var centerTitleLabel: UILabel!
+    @IBOutlet weak var centerSubtitleLabel: UILabel!
+    
+    static func rowHeight() -> CGFloat {
+        return 160
+    }
+    
     var homeItem: MHYHomeItem? {
         didSet {
+            showCenterInfo(false)
+            
             let url = homeItem!.cover_image_url
             bgImageView.kf.setImage(with: URL(string: url!)!,
                                     placeholder: nil,
@@ -42,8 +54,27 @@ class MHYHomeCell: UITableViewCell {
         }
     }
     
-    var topicItem: MHYPostModel? {
+    var postItem: MHYPostModel? {
         didSet {
+            showCenterInfo(false)
+            
+            let url = postItem!.cover_image_url
+            bgImageView.kf.setImage(with: URL(string: url!)!,
+                                    placeholder: nil,
+                                    options: nil,
+                                    progressBlock: nil)
+            { (image, error, cacheType, url) in
+                self.placeHolderBtn.isHidden = true
+            }
+            titleLabel.text = postItem!.title
+            favoriteBtn.setTitle(" " + String(postItem!.likes_count!) + " ", for: .normal)
+        }
+    }
+    
+    var topicItem: MHYTopicModel? {
+        didSet {
+            showCenterInfo(true)
+            
             let url = topicItem!.cover_image_url
             bgImageView.kf.setImage(with: URL(string: url!)!,
                                     placeholder: nil,
@@ -52,8 +83,9 @@ class MHYHomeCell: UITableViewCell {
             { (image, error, cacheType, url) in
                 self.placeHolderBtn.isHidden = true
             }
-            titleLabel.text = topicItem!.title
-            favoriteBtn.setTitle(" " + String(topicItem!.likes_count!) + " ", for: .normal)
+            
+            centerTitleLabel.text    = topicItem?.title
+            centerSubtitleLabel.text = topicItem?.subtitle
         }
     }
     
@@ -72,6 +104,29 @@ class MHYHomeCell: UITableViewCell {
 
     @IBAction func favoriteBtnClicked(_ sender: UIButton) {
         delegate?.homeCellDidClickedFavoriteButton(button: sender)
+    }
+    
+    private func showCenterInfo(_ show: Bool) {
+        if show {
+            centerTitleLabel.isHidden    = false
+            centerSubtitleLabel.isHidden = false
+            zeroLabel.isHidden           = false
+            leftLineView.isHidden        = false
+            rightLineView.isHidden       = false
+            
+            titleLabel.isHidden  = true
+            favoriteBtn.isHidden = true
+
+        } else {
+            centerTitleLabel.isHidden    = true
+            centerSubtitleLabel.isHidden = true
+            zeroLabel.isHidden           = true
+            leftLineView.isHidden        = true
+            rightLineView.isHidden       = true
+            
+            titleLabel.isHidden  = false
+            favoriteBtn.isHidden = false
+        }
     }
     
 }

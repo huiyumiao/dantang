@@ -79,7 +79,7 @@ class MHYTopicTableViewController: UITableViewController, MHYHomeCellDelegate {
     }
     
     func setupTableView() {
-        tableView.rowHeight = 160
+        tableView.rowHeight = MHYHomeCell.rowHeight()
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsetsMake(kTitlesViewH + kTitlesViewY, 0, tabBarController!.tabBar.height, 0)
         tableView.scrollIndicatorInsets = tableView.contentInset

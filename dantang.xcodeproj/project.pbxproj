@@ -77,6 +77,7 @@
 		8C8A66B81EE509FA00732061 /* MHYProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A66B71EE509FA00732061 /* MHYProductDetail.swift */; };
 		8C8A66BB1EE50B9100732061 /* MHYCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8A66B91EE50B9100732061 /* MHYCollectionViewCell.swift */; };
 		8C8A66BC1EE50B9100732061 /* MHYCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C8A66BA1EE50B9100732061 /* MHYCollectionViewCell.xib */; };
+		8CF9BB9F1F39AC9D00F4DD48 /* MHYCategoryAllTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF9BB9E1F39AC9D00F4DD48 /* MHYCategoryAllTopicViewController.swift */; };
 		D35D2E1FB407E4FC2EF2962F /* Pods_dantang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE93C4FE387A69C62DE06740 /* Pods_dantang.framework */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +175,7 @@
 		8C8A66B71EE509FA00732061 /* MHYProductDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYProductDetail.swift; sourceTree = "<group>"; };
 		8C8A66B91EE50B9100732061 /* MHYCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYCollectionViewCell.swift; sourceTree = "<group>"; };
 		8C8A66BA1EE50B9100732061 /* MHYCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MHYCollectionViewCell.xib; sourceTree = "<group>"; };
+		8CF9BB9E1F39AC9D00F4DD48 /* MHYCategoryAllTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHYCategoryAllTopicViewController.swift; sourceTree = "<group>"; };
 		ABDD5D3DA675FD681EEE79A4 /* Pods-dantang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dantang.release.xcconfig"; path = "Pods/Target Support Files/Pods-dantang/Pods-dantang.release.xcconfig"; sourceTree = "<group>"; };
 		AE93C4FE387A69C62DE06740 /* Pods_dantang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dantang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -350,6 +352,7 @@
 			children = (
 				8C521FB91EE0F26D00027CA1 /* MHYCategoryViewController.swift */,
 				8C3F62F31F37F543001A5574 /* MHYTopicListViewController.swift */,
+				8CF9BB9E1F39AC9D00F4DD48 /* MHYCategoryAllTopicViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				8C81D12E1EE7CBFE00EF5AE5 /* MHYTMALLViewController.swift in Sources */,
 				8C81D1251EE6FB2000EF5AE5 /* MHYDetailChoiceButtonView.swift in Sources */,
 				8C521FCF1EE13D7C00027CA1 /* MHYTopicTableViewController.swift in Sources */,
+				8CF9BB9F1F39AC9D00F4DD48 /* MHYCategoryAllTopicViewController.swift in Sources */,
 				8C6583FF1EEE8F85005B9312 /* MJRefreshHeader.m in Sources */,
 				8C521FA71EE058D200027CA1 /* MHYNavigationViewController.swift in Sources */,
 				8C8A66B61EE509DB00732061 /* MHYProduct.swift in Sources */,

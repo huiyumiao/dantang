@@ -229,10 +229,10 @@ class MHYNetworkTool: NSObject {
     }
     
     // MARK: - 分类页面专题合集数据
-    func loadCategoryCollectionsInfo(finished:@escaping (_ collections: [MHYTopicModel]) -> ()) {
+    func loadCategoryCollectionsInfo(limit: Int, finished:@escaping (_ collections: [MHYTopicModel]) -> ()) {
         SVProgressHUD.show()
         
-        let url = BASE_URL + "v1/collections"
+        let url = BASE_URL + "v1/collections?limit=\(limit)&offset=0"
         
         Alamofire
             .request(url)
@@ -316,7 +316,7 @@ class MHYNetworkTool: NSObject {
         }
     }
     
-    // MARK: - <#mark info#>
+    // MARK: - 所有 channelGroup 信息
     func loadChannelGroups(finished:@escaping (_ channelGroups: [MHYChannelGroupModel]) -> ()) {
         SVProgressHUD.show(withStatus: "加载中...")
         
@@ -351,6 +351,51 @@ class MHYNetworkTool: NSObject {
                     }
                     
                     finished(channelGroups)
+                }
+        }
+    }
+
+    
+    /**
+     某个 channel 的信息
+     
+     - parameter id:       channel id
+     - parameter finished: 回掉的形式返回 channelItems
+     */
+    func loadChannelitems(id: Int, finished:@escaping (_ channelGroups: [MHYPostModel]) -> ()) {
+        SVProgressHUD.show(withStatus: "加载中...")
+        
+        let url = BASE_URL + "v1/channels/\(id)/items?limit=20&offset=0"
+        
+        Alamofire.request(url)
+            .responseJSON { (response) in
+                guard response.result.isSuccess else {
+                    SVProgressHUD.showError(withStatus: "加载失败")
+                    return
+                }
+                
+                if let value = response.value {
+                    let dict = JSON(value)
+                    let code = dict["code"].intValue
+                    let message = dict["message"].stringValue
+                    
+                    guard code == RETURN_OK else {
+                        SVProgressHUD.showInfo(withStatus: message)
+                        return
+                    }
+                    SVProgressHUD.dismiss()
+                    
+                    var channelItems = [MHYPostModel]()
+                    if let data = dict["data"].dictionary {
+                        if let items = data["items"]?.arrayObject {
+                            for item in items {
+                                let channelItem = MHYPostModel(dict: item as! [String: AnyObject])
+                                channelItems.append(channelItem)
+                            }
+                        }
+                    }
+                    
+                    finished(channelItems)
                 }
         }
     }

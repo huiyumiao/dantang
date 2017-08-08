@@ -12,7 +12,6 @@ let ChannelGroupCell = "MHYChannelGroupCell"
 
 class MHYChannelGroupCell: UITableViewCell {
     
-    
     var titleLabel = UILabel()
     
     var margin = CGFloat()
@@ -26,6 +25,8 @@ class MHYChannelGroupCell: UITableViewCell {
     static func extraBaseHeight() -> CGFloat {
         return 112
     }
+    
+    var showDetailCloser: ((Int, String) -> ())?
 
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -83,8 +84,11 @@ class MHYChannelGroupCell: UITableViewCell {
         }
     }
     
+    var channelDict = [[Int: MHYChannelModel]]()
     
     fileprivate func subItem(channel: MHYChannelModel, index: Int) {
+        channelDict.append([channel.id! : channel])
+        
         let container = UIView()
         contentView.addSubview(container)
         container.snp.makeConstraints { (make) in
@@ -106,7 +110,10 @@ class MHYChannelGroupCell: UITableViewCell {
             make.top.left.right.equalTo(container)
             make.height.equalTo(itemWidth)
         }
-        
+        let tapRec = UITapGestureRecognizer(target: self, action: #selector(imgViewTapped(recognizer:)))
+        imgView.addGestureRecognizer(tapRec)
+        imgView.isUserInteractionEnabled = true
+        imgView.tag = channel.id!
         
         let titleLabel = UILabel()
         titleLabel.text = channel.name
@@ -118,6 +125,19 @@ class MHYChannelGroupCell: UITableViewCell {
             make.centerX.equalTo(imgView)
         }
     }
+    
+    func imgViewTapped(recognizer: UITapGestureRecognizer) {
+        if showDetailCloser != nil {
+            for item in channelDict {
+                if let channel = item[(recognizer.view?.tag)!] {
+                    showDetailCloser!((recognizer.view?.tag)!, channel.name!)
+                    break
+                }
+            }
+            
+        }
+    }
+    
 }
 
 

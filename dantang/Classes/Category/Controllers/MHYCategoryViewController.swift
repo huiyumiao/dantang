@@ -42,7 +42,7 @@ class MHYCategoryViewController: MHYBaseViewController {
     }()
     
     func loadCollections() {
-        MHYNetworkTool.sharedNetworkTool.loadCategoryCollectionsInfo { (topicCollections) in
+        MHYNetworkTool.sharedNetworkTool.loadCategoryCollectionsInfo(limit: 6) { (topicCollections) in
             self.collections = topicCollections
             self.tableView.reloadData()
         }
@@ -65,8 +65,12 @@ extension MHYCategoryViewController: UITableViewDelegate, UITableViewDataSource 
             topicsCell.topicCollections = collections
             
             topicsCell.topicListCloser = { id in
-                let topicListVC = MHYTopicListViewController().initWith(topicId: id)
+                let topicListVC = MHYTopicListViewController().initWith(id: id, type: .ViewControllerTypeTopic)
                 self.navigationController?.pushViewController(topicListVC, animated: true)
+            }
+            topicsCell.showAllCloser = {
+                let allTopicVC = MHYCategoryAllTopicViewController()
+                self.navigationController?.pushViewController(allTopicVC, animated: true)
             }
             
             return topicsCell
@@ -77,6 +81,12 @@ extension MHYCategoryViewController: UITableViewDelegate, UITableViewDataSource 
                 channelCell = MHYChannelGroupCell(style: .default, reuseIdentifier: ChannelGroupCell)
             }
             channelCell?.channelGroup = channelGroups[indexPath.row - 1]
+            
+            channelCell?.showDetailCloser = {(id, name) in
+                let topicListVC = MHYTopicListViewController().initWith(id: id, type: .ViewControllerTypeChannel)
+                topicListVC.title = name
+                self.navigationController?.pushViewController(topicListVC, animated: true)
+            }
             
             return channelCell!
         }
@@ -95,10 +105,6 @@ extension MHYCategoryViewController: UITableViewDelegate, UITableViewDataSource 
             
             return MHYChannelGroupCell.rowBaseHeight() +  MHYChannelGroupCell.extraBaseHeight() * CGFloat(floor(Float(count! / 5)))
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {

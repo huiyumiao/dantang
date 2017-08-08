@@ -22,6 +22,7 @@ class MHYCategoryTopicsCellTableViewCell: UITableViewCell {
     let imgViewHeight = 70
     
     var topicListCloser: ((Int) -> ())?
+    var showAllCloser: (() -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +30,12 @@ class MHYCategoryTopicsCellTableViewCell: UITableViewCell {
         scrollView.showsHorizontalScrollIndicator = false
         titleLabel.text = "专题合集"
         showAllBtn.titleLabel?.text = "查看全部"
+    }
+    
+    @IBAction func showAllAction(_ sender: UIButton) {
+        if showAllCloser != nil {
+            showAllCloser!()
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -42,6 +42,9 @@
                         <state key="normal" title="查看全部">
                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="showAllAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="97d-Rf-rIr"/>
+                        </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Category_PostCollectionSeeAll_5x8_" translatesAutoresizingMaskIntoConstraints="NO" id="Z1q-rX-Ybs">
                         <rect key="frame" x="300" y="16.5" width="5" height="8"/>
@@ -69,7 +72,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="scrollView" destination="CpB-HL-IBb" id="KdY-Ow-bF3"/>
-                <outlet property="showAllBtn" destination="cw5-ot-ofc" id="ZYS-0c-HNF"/>
+                <outlet property="showAllBtn" destination="cw5-ot-ofc" id="z94-1Z-YeC"/>
                 <outlet property="titleLabel" destination="oLx-q4-wql" id="a0V-rU-F11"/>
             </connections>
             <point key="canvasLocation" x="-78" y="30"/>
